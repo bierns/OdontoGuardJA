@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Pacientes</title>
+</head>
+<body>
+    <h1>Lista de Pacientes</h1>
+    <form action="/pacientes/salvar" method="post">
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="telefone" placeholder="Telefone">
+        <button type="submit">Adicionar</button>
+    </form>
+    <ul>
+        <li th:each="paciente : ${pacientes}">
+            <span th:text="${paciente.nome}"></span> - 
+            <span th:text="${paciente.email}"></span> - 
+            <span th:text="${paciente.telefone}"></span>
+        </li>
+    </ul>
+</body>
+</html>
