@@ -16,15 +16,22 @@ public class PacienteController {
         this.pacienteRepository = pacienteRepository;
     }
 
+    
     @GetMapping
     public String listarPacientes(Model model) {
         model.addAttribute("pacientes", pacienteRepository.findAll());
         return "pacientes";
     }
 
+    
     @PostMapping("/salvar")
-    public String salvarPaciente(@ModelAttribute Paciente paciente) {
-        pacienteRepository.save(paciente);
-        return "redirect:/pacientes";
+    public String salvarPaciente(@ModelAttribute Paciente paciente, Model model) {
+        try {
+            pacienteRepository.save(paciente); 
+            model.addAttribute("mensagem", "Paciente salvo com sucesso!"); 
+        } catch (Exception e) {
+            model.addAttribute("mensagem", "Erro ao salvar paciente."); 
+        }
+        return "redirect:/pacientes"; 
     }
 }

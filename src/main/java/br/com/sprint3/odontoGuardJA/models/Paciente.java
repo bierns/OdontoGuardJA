@@ -8,7 +8,8 @@ import lombok.Data;
 public class Paciente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "paciente_seq")
+    @SequenceGenerator(name = "paciente_seq", sequenceName = "PACIENTE_SEQ", allocationSize = 1)
     private Long id;
 
     @Column(nullable = false)
