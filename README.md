@@ -1,7 +1,3 @@
-Aqui está um README mais simples para o seu projeto:
-
----
-
 # OdontoGuardJA
 
 Este é um projeto de aplicação MVC desenvolvido para a **OdontoPrev**, focado no gerenciamento odontológico, utilizando **Spring Boot**, **Thymeleaf**, **Spring Security**, e integração com **RabbitMQ** para mensagens assíncronas.
